@@ -7,7 +7,9 @@
 # Temporal Sleep Stage Classification using ECG-based CNN-LSTM
 
 ##  Abstract
-This project focuses on classifying sleep stages (**Wake, N1, N2, N3, and REM**) using only **single-lead ECG signals**. By analyzing Heart Rate Variability (HRV) and temporal patterns, we avoid the complexity of traditional EEG-based Polysomnography.
+"Automated sleep stage classification is vital for accessible sleep health monitoring. This project develops a high-performance pipeline for classifying five sleep stages (Wake, N1, N2, N3, and REM) using only single-lead ECG signals. Our methodology integrates digital signal processing with a hybrid CNN-LSTM architecture, combining 1D-ResNet for spatial feature extraction and Bidirectional LSTM for temporal context modeling.
+
+To enhance classification accuracy, we utilize a dual-domain approach, merging time-domain Instantaneous Heart Rate (IHR) with spectral frequency features (LF, HF, LF/HF). Key challenges like class imbalance and signal noise are addressed through SMOTE oversampling and strategic data augmentation. Evaluated on the MESA dataset, the model achieves a competitive 63% accuracy, providing a computationally efficient and interpretable alternative to traditional multi-modal sleep staging systems."
 
 ## Pipeline
 
