@@ -16,7 +16,7 @@ The model achieved an overall accuracy of **63%**, a competitive result for ECG-
 <img width="789" height="699" alt="image" src="https://github.com/user-attachments/assets/4e5d742e-81f1-4b09-96e7-a105b6b4a0e0" />
 
 ## Test accuracy
-
+<img width="420" height="42" alt="image" src="https://github.com/user-attachments/assets/3852fb1d-5d8b-4e35-aca9-d6c7a81e3962" />
 
 
 
