@@ -5,7 +5,7 @@ To ensure the highest accuracy in R-peak detection, we implemented:
 * **Normalization:** Patient-wise Z-score scaling.
 * **Band-pass Filtering:** (0.5 Hz – 40 Hz) to remove noise and baseline wander.
 * **IHR Extraction:** Calculating Instantaneous Heart Rate from R-R intervals.
-* **Resampling:** 4Hz Linear Interpolation for uniform data dimensions.
+* **Cubic Spline Interpolation**: followed by resampling at 4 Hz.
 
 
 
