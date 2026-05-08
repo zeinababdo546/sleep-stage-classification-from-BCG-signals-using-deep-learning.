@@ -1,3 +1,8 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torch.utils.data import Dataset, DataLoader
+
 # Dataset that loads 5 consecutive windows
 class SleepSequenceDataset(Dataset):
     def __init__(self, X, y, seq_len=5):
