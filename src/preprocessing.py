@@ -1,3 +1,12 @@
+import os
+import mne
+import numpy as np
+import xml.etree.ElementTree as ET
+from scipy.interpolate import interp1d
+from mne.preprocessing.ecg import find_ecg_events
+from scipy.signal import welch, medfilt
+from scipy.integrate import trapezoid
+
 # --- 1. Processing Functions ---
 def get_hrv_features(window, fs=4.0):
     freqs, psd = welch(window, fs=fs, nperseg=128)
