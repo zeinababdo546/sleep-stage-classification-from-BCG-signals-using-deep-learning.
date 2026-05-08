@@ -18,5 +18,13 @@ The model achieved an overall accuracy of **63%**, a competitive result for ECG-
 ## Test accuracy
 <img width="420" height="42" alt="image" src="https://github.com/user-attachments/assets/3852fb1d-5d8b-4e35-aca9-d6c7a81e3962" />
 
+## References & Research Basis
+1-Automatic IHR-based sleep stage detection using features of residual 
+neural network 
+2-ECG-SleepNet: Deep Learning-Based
+Comprehensive Sleep Stage Classification
+Using ECG Signals
+
+
 
 
