@@ -1,29 +1,23 @@
-# sleep-stage-classification-from-EKG-signals-using-deep-learning.
-# Sleep Stage Classification using Temporal ECG Analysis
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
-![MNE](https://img.shields.io/badge/MNE--Python-0.24+-green.svg)
 
-# Temporal Sleep Stage Classification using ECG-based CNN-LSTM
-
+# Temporal Sleep Stage Classification using ECG-based CNN-LST
 ##  Abstract
 "Automated sleep stage classification is vital for accessible sleep health monitoring. This project develops a high-performance pipeline for classifying five sleep stages (Wake, N1, N2, N3, and REM) using only single-lead ECG signals. Our methodology integrates digital signal processing with a hybrid CNN-LSTM architecture, combining 1D-ResNet for spatial feature extraction and Bidirectional LSTM for temporal context modeling.
 
-To enhance classification accuracy, we utilize a dual-domain approach, merging time-domain Instantaneous Heart Rate (IHR) with spectral frequency features (LF, HF, LF/HF). Key challenges like class imbalance and signal noise are addressed through SMOTE oversampling and strategic data augmentation. Evaluated on the MESA dataset, the model achieves a competitive 63% accuracy, providing a computationally efficient and interpretable alternative to traditional multi-modal sleep staging systems."
+To enhance classification accuracy, we utilize a dual-domain approach, merging time-domain Instantaneous Heart Rate (IHR) with spectral frequency features (LF, HF,lf_nu, hf_nu, LF/HF ratio). Key challenges like class imbalance and signal noise are addressed through SMOTE oversampling and strategic data augmentation. Evaluated on the MESA dataset, the model achieves a competitive 63% accuracy, providing a computationally efficient and interpretable alternative to traditional multi-modal sleep staging systems."
 
 ## Pipeline
 
 ### 1. Signal Preprocessing & Cleaning
 To ensure the highest accuracy in R-peak detection, we implemented:
+* **Normalization:** Patient-wise Z-score scaling.
 * **Band-pass Filtering:** (0.5 Hz – 40 Hz) to remove noise and baseline wander.
 * **IHR Extraction:** Calculating Instantaneous Heart Rate from R-R intervals.
 * **Resampling:** 4Hz Linear Interpolation for uniform data dimensions.
-* **Normalization:** Patient-wise Z-score scaling.
 
 
 
 ### 2. Feature Engineering & Data Balancing
-* **Hybrid Features:** Integration of time-domain IHR with **Spectral Features** (LF, HF, LF/HF ratio) using Welch’s method.
+* **Hybrid Features:** Integration of time-domain IHR with **Spectral Features** (LF, HF,lf_nu, hf_nu, LF/HF ratio) using Welch’s method.
 * **Class Imbalance (SMOTE):** Addressed the scarcity of N1 and N3 stages using the Synthetic Minority Over-sampling Technique.
 * **Augmentation:** Applied Gaussian noise and time-shifting to improve model generalization.
 
@@ -38,17 +32,10 @@ We utilized a hybrid deep learning model to capture both spatial and temporal fe
 The model achieved an overall accuracy of **63%**, a competitive result for ECG-only classification.
 
 ### Classification Report:
-| Stage | Precision | Recall | F1-Score |
-|-------|-----------|--------|----------|
-| **Wake** | 0.78      | 0.83   | 0.81     |
-| **N1** | 0.19      | 0.13   | 0.15     |
-| **N2** | 0.58      | 0.70   | 0.63     |
-| **N3** | 0.37      | 0.21   | 0.27     |
-| **REM** | 0.42      | 0.22   | 0.29     |
+<img width="452" height="221" alt="image" src="https://github.com/user-attachments/assets/533af57f-5cab-4cae-a529-c45e39433d57" />
+
+## Confusion Matrix
+<img width="789" height="699" alt="image" src="https://github.com/user-attachments/assets/4e5d742e-81f1-4b09-96e7-a105b6b4a0e0" />
 
 
 
-## 🚀 How to Run
-1. Install dependencies: `pip install -r requirements.txt`
-2. Ensure EDF and XML files are in the designated `/Dataset` folder.
-3. Run the notebook: `Sleep_Classification.ipynb`.
