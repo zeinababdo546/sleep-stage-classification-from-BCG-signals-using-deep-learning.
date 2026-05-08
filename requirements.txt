@@ -1,5 +1,17 @@
-numpy
-pandas
-matplotlib
+# --- Data Processing & medical signals ---
 mne
+numpy
+scipy
+pandas
+
+# --- Signal Augmentation & Balancing ---
+imbalanced-learn
+
+# --- Deep Learning (PyTorch) ---
+torch
+torchvision
+
+# --- Machine Learning & Evaluation ---
 scikit-learn
+matplotlib
+seaborn
