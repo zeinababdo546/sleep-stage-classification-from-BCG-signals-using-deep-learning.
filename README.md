@@ -1,9 +1,9 @@
 
 # # Sleep-Stage-Classification-using-ECG-based-IHR-Signals
 ##  Abstract
-"Automated sleep stage classification is vital for accessible sleep health monitoring. This project develops a high-performance pipeline for classifying five sleep stages (Wake, N1, N2, N3, and REM) using only single-lead ECG signals. Our methodology integrates digital signal processing with a hybrid CNN-LSTM architecture, combining 1D-ResNet for spatial feature extraction and Bidirectional LSTM for temporal context modeling.
+Automated sleep stage classification is vital for accessible sleep health monitoring. This project develops a high-performance pipeline for classifying five sleep stages (Wake, N1, N2, N3, and REM) using only single-lead ECG signals. Our methodology integrates digital signal processing with a hybrid CNN-LSTM architecture, combining 1D-ResNet for spatial feature extraction and Bidirectional LSTM for temporal context modeling.
 
-To enhance classification accuracy, we utilize a dual-domain approach, merging time-domain Instantaneous Heart Rate (IHR) with spectral frequency features (LF, HF,lf_nu, hf_nu, LF/HF ratio). Key challenges like class imbalance and signal noise are addressed through SMOTE oversampling and strategic data augmentation. Evaluated on the MESA dataset, the model achieves a competitive 63% accuracy, providing a computationally efficient and interpretable alternative to traditional multi-modal sleep staging systems."
+To enhance classification accuracy, we utilize a dual-domain approach, merging time-domain Instantaneous Heart Rate (IHR) with spectral frequency features (LF, HF,lf_nu, hf_nu, LF/HF ratio). Key challenges like class imbalance and signal noise are addressed through SMOTE oversampling and strategic data augmentation. Evaluated on the MESA dataset, the model achieves a competitive 63% accuracy, providing a computationally efficient and interpretable alternative to traditional multi-modal sleep staging systems.
 
 
 ## Performance Results
@@ -17,6 +17,9 @@ The model achieved an overall accuracy of **63%**, a competitive result for ECG-
 
 ## Test accuracy
 <img width="420" height="42" alt="image" src="https://github.com/user-attachments/assets/3852fb1d-5d8b-4e35-aca9-d6c7a81e3962" />
+## ROC CURVE
+<img width="846" height="691" alt="image" src="https://github.com/user-attachments/assets/6ac432bd-6ebb-41f6-b470-2046991ccad2" />
+
 
 
 
