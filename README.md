@@ -17,6 +17,7 @@ The model achieved an overall accuracy of **63%**, a competitive result for ECG-
 
 ## Test accuracy
 <img width="420" height="42" alt="image" src="https://github.com/user-attachments/assets/3852fb1d-5d8b-4e35-aca9-d6c7a81e3962" />
+
 ## ROC CURVE
 <img width="846" height="691" alt="image" src="https://github.com/user-attachments/assets/6ac432bd-6ebb-41f6-b470-2046991ccad2" />
 
