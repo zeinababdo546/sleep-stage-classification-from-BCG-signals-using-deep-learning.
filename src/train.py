@@ -120,11 +120,7 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(
 criterion = nn.CrossEntropyLoss()
 
 best_val_acc = 0.0
-epochs = 20
-
-print(f"🚀 Starting Temporal Training on: {device}...")
-
-for epoch in range(epochs):
+for epoch in range(20):
 
     model.train()
 
