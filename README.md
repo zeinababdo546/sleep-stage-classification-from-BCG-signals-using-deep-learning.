@@ -60,11 +60,31 @@ The single-lead EKG pipeline achieves robust classification mapping on independe
 •	Overall Validation Accuracy: ~63.61%.
 •	Overall Test Accuracy: ~63.61% , Which is a competitive result for ECG-only classification.
 
-## Classification Report
-<img width="452" height="221" alt="image" src="https://github.com/user-attachments/assets/b5a0779d-e4e0-4f29-8365-200c8e4a11ce" />
+## Classification Report  
+
+              precision    recall  f1-score   support
+
+        Wake       0.83      0.81      0.82       766
+          S1       0.27      0.15      0.19       139
+          S2       0.55      0.77      0.64       616
+          S3       0.38      0.21      0.27       131
+         REM       0.39      0.16      0.23       189
+
+    accuracy                           0.64      1841
+   macro avg       0.48      0.42      0.43      1841
+weighted avg       0.61      0.64      0.61      1841
 
 ## Confusion Matrix
-<img width="789" height="699" alt="image" src="https://github.com/user-attachments/assets/4e5d742e-81f1-4b09-96e7-a105b6b4a0e0" />
+<img width="789" height="699" alt="image" src="https://github.com/user-attachments/assets/4e5d742e-81f1-4b09-96e7-a105b6b4a0e0" />  
+#### Confusion Matrix Analysis
+
+1. **High Discrimination in Distinct States (Wake & S2):** The model shows exceptional robustness in classifying **Wake** (620 correct predictions) and **S2** (473 correct predictions). This is clinically logical as Wake features high muscle artifacts/alpha activity, and S2 possesses distinct morphological waveforms (Sleep Spindles and K-Complexes) that the CNN-LSTM successfully captured.
+
+2. **The S1 Transitional Overlap:**
+   A significant number of **S1** epochs (84 epochs) were misclassified as **S2**. In sleep physiology, S1 is a short, highly unstable transitional phase between wakefulness and deep sleep. It naturally shares overlapping EEG/ECG-derived features with S2, making it a classic challenge for automated scoring algorithms.
+
+3. **REM vs. NREM Confusion:**
+   About 110 epochs of **REM** sleep were misclassified as **S2**. This is a well-known phenomenon when utilizing cardiac/ECG-based features alone; during certain periods of REM, autonomic nervous system stability can mirror NREM (S2) characteristics, causing the temporal classifier to lean towards the majority class (S2).
 
 ## ROC CURVE
 <img width="924" height="649" alt="Screenshot (440)" src="https://github.com/user-attachments/assets/7a3968bf-263f-419c-86f6-7feb486f99bd" />
