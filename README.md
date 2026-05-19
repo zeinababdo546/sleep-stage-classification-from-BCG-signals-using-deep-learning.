@@ -24,7 +24,7 @@ To enhance classification accuracy, we utilize a dual-domain approach, merging t
 
 •	Outlier Rejection: Physiologically anomalous intervals (IBIs below 0.33s or above 1.5s, corresponding to >180 bpm or <40 bpm) are masked out. A Median Filter (medfilt with kernel size 3) smoothens the resulting Instantaneous Heart Rate (IHR).
 
-## 2. Uniform Resampling & Window Epoching
+#### 2. Uniform Resampling & Window Epoching
 
 •	Linear Interpolation: Because heartbeats occur at irregular intervals, the cleaned IHR is resampled onto a constant time grid at 4Hz using scipy.interpolate.interp1d.
 
