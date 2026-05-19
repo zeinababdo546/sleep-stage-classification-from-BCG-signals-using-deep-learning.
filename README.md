@@ -65,7 +65,7 @@ The single-lead EKG pipeline achieves robust classification mapping on independe
 
     accuracy                           0.64      1841
    macro avg       0.48      0.42      0.43      1841
-weighted avg       0.61      0.64      0.61      1841  
+
 
 
 ## Confusion Matrix
