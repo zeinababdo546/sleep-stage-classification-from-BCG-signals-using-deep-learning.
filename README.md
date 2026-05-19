@@ -15,7 +15,7 @@ Data Manipulation: Pandas, NumPy
 Parsing: xml.etree.ElementTree
 
 ## Detailed Project Pipeline
- 1- Signal Preprocessing & Cleaning
+ # 1. Signal Preprocessing & Cleaning
  
 •	Bandpass Filtering: Raw EKG signals are filtered using a FIR design filter (0.5 Hz - 40.0 Hz) to eliminate baseline wander, powerline interference, and muscle artifacts.
 
@@ -23,7 +23,7 @@ Parsing: xml.etree.ElementTree
 
 •	Outlier Rejection: Physiologically anomalous intervals (IBIs below 0.33s or above 1.5s, corresponding to >180 bpm or <40 bpm) are masked out. A Median Filter (medfilt with kernel size 3) smoothens the resulting Instantaneous Heart Rate (IHR).
 
-2- Uniform Resampling & Window Epoching
+# 2. Uniform Resampling & Window Epoching
 
 •	Linear Interpolation: Because heartbeats occur at irregular intervals, the cleaned IHR is resampled onto a constant time grid at 4Hz using scipy.interpolate.interp1d.
 
@@ -31,7 +31,7 @@ Parsing: xml.etree.ElementTree
 
 •	Z-Score Normalization: Localized standard scaling is applied to each 30-second epoch independently to ensure amplitude invariance.
 
-3- Spectral HRV Feature Engineering
+# 3. Spectral HRV Feature Engineering
 
 For each 30-second window, Welch’s method is executed to compute the Power Spectral Density (PSD) to extract 5 robust frequency-domain features:
 
@@ -43,13 +43,13 @@ For each 30-second window, Welch’s method is executed to compute the Power Spe
 
 •	Normalized LF & HF (lf_nu, hf_nu): Relative power percentages calculated against total power.
 
-4- Class Imbalance & Sequence Stacking
+# 4. Class Imbalance & Sequence Stacking
 
 •	SMOTE Balancing: Minority sleep stages (such as Stage 1 and REM) are synthetically oversampled using SMOTE to prevent the deep learning classifier from biasing towards dominant stages (Stage 2/Wake).
 
 •	Temporal Sequence Stacking: Consecutive epochs are stacked into overlapping sequences of 5 windows to provide the model with essential historical sleep-transition context.
 
-5- Hybrid CNN-BiLSTM Deep Learning Model
+# 5. Hybrid CNN-BiLSTM Deep Learning Model
 
 •	1D-CNN Layers: Extract spatial morphology, instantaneous fluctuations, and local localized feature maps directly from the 4Hz normalized signals.
 
@@ -64,13 +64,13 @@ The single-lead EKG pipeline achieves robust classification mapping on independe
  -Overall Test Accuracy: ~63.61% , Which is a competitive result for ECG-only classification.
 
 ## Classification Report:
-<img width="452" height="221" alt="image" src="https://github.com/user-attachments/assets/533af57f-5cab-4cae-a529-c45e39433d57" />
+<img width="783" height="646" alt="Screenshot (439)" src="https://github.com/user-attachments/assets/e851d3ac-86e5-416d-8f7b-bef60d57311f" />
 
 ## Confusion Matrix
 <img width="789" height="699" alt="image" src="https://github.com/user-attachments/assets/4e5d742e-81f1-4b09-96e7-a105b6b4a0e0" />
 
 ## ROC CURVE
-<img width="846" height="691" alt="image" src="https://github.com/user-attachments/assets/6ac432bd-6ebb-41f6-b470-2046991ccad2" />
+<img width="924" height="649" alt="Screenshot (440)" src="https://github.com/user-attachments/assets/7a3968bf-263f-419c-86f6-7feb486f99bd" />
 
 ## Refrences
 - https://www.sciencedirect.com/science/article/pii/S1746809423005037
