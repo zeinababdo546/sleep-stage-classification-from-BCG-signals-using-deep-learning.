@@ -14,8 +14,8 @@ To enhance classification accuracy, we utilize a **dual-domain approach**, mergi
 * **Data Manipulation:** Pandas, NumPy  
 * **Parsing:** xml.etree.ElementTree
 
-## Pipeline
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/670b10f2-8a10-4663-9834-c5a8fe8350c4" />
+## Pipeline  
+<img width="1024" height="163" alt="WhatsApp Image 2026-05-19 at 9 23 01 PM" src="https://github.com/user-attachments/assets/637d9100-58df-4984-8163-c6351ed519c4" />
 
 ## Detailed Project Pipeline
 #### 1. Signal Preprocessing & Cleaning
