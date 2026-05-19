@@ -1,9 +1,9 @@
 
 ## Sleep Stage Classification using ECG_based IHR Signals
 ##  Abstract
-Automated sleep stage classification is vital for accessible sleep health monitoring. This project develops a high-performance pipeline for classifying five sleep stages (Wake, N1, N2, N3, and REM) using only single-lead ECG signals. Our methodology integrates digital signal processing with a hybrid CNN-LSTM architecture, combining 1D-ResNet for spatial feature extraction and Bidirectional LSTM for temporal context modeling.
+Automated sleep stage classification is vital for accessible sleep health monitoring. This project develops a high-performance pipeline for classifying five sleep stages (**Wake, N1, N2, N3, and REM**) using only **single-lead ECG signals**. Our methodology integrates digital signal processing with **a hybrid CNN-LSTM architecture**, combining 1D-ResNet for spatial feature extraction and Bidirectional LSTM for temporal context modeling.
 
-To enhance classification accuracy, we utilize a dual-domain approach, merging time-domain Instantaneous Heart Rate (IHR) with spectral frequency features (LF, HF,lf_nu, hf_nu, LF/HF ratio). Key challenges like class imbalance and signal noise are addressed through SMOTE oversampling and strategic data augmentation. Evaluated on the MESA dataset, the model achieves a competitive 63% accuracy, providing a computationally efficient and interpretable alternative to traditional multi-modal sleep staging systems.
+To enhance classification accuracy, we utilize a **dual-domain approach**, merging **time-domain Instantaneous Heart Rate (IHR)** with **spectral frequency features** (LF, HF,lf_nu, hf_nu, LF/HF ratio). Key challenges like class imbalance and signal noise are addressed through **SMOTE oversampling** and strategic data augmentation. Evaluated on the **MESA dataset**, the model achieves a competitive **63.61% accuracy**, providing a computationally efficient and interpretable alternative to traditional multi-modal sleep staging systems.
 
 
 ## Tech Stack & Libraries
@@ -47,7 +47,7 @@ For each 30-second window, **Welch’s method** is executed to compute the **Pow
 * **Residual Connections:** Prevent vanishing gradients, enabling deeper network learning through **Skip Connections**.
 * **Bi-LSTM Layer:** Processes the feature sequence both **forward and backward in time** to capture long-term **temporal dependencies** across macro sleep structures.
 
-####  Results
+##  Results
 The single-lead EKG pipeline achieves robust classification mapping on independent test subjects:  
 * **Overall Validation Accuracy:** `~63.61%`
 * **Overall Test Accuracy:** `~63.61%`  
