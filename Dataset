@@ -1,1 +1,12 @@
+##### This project uses the Multi-Ethnic Study of Atherosclerosis (MESA)  Sleep Dataset from the **National Sleep Research Resource (NSRR). Download it from [NSRR website](https://sleepdata.org/datasets/mesa).
 
+##### Data Specifications  
+Source Signal: Continuous ECG/EKG extracted from Polysomnography (PSG).  
+Ground Truth: Expert-scored sleep stages from NSRR XML files.  
+Classification Target (5 Stages): Wake, S1, S2 , S3 , and REM.  
+
+##### Dataset Description & Engineering Challenges
+
+Polysomnography (PSG) Source:** The ECG signals are not clean standalone recordings; they were extracted from full-night clinical PSG tests, meaning they contain real-world artifacts (motion, electrode peeling) that required our rigorous filtering pipeline.
+Sampling Discrepancy:** The annotations are scored per **30-second epoch** (the medical standard for sleep staging), while the continuous ECG had to be segmented, resampled to 4Hz, and aligned precisely with these 30s windows.
+Class Imbalance:** Sleep data is naturally imbalanced (people spend most of the night in S2 and Wake, and very little time in S1). This critical medical challenge was handled using **SMOTE** to ensure the CNN-LSTM model learns all stages equally without bias.
