@@ -37,12 +37,9 @@ To enhance classification accuracy, we utilize a dual-domain approach, merging t
 
 For each 30-second window, Welch’s method is executed to compute the Power Spectral Density (PSD) to extract 5 robust frequency-domain features:
 
-•	Low Frequency (LF) Power: Integrated power from 0.04 to 0.15 Hz (Reflects sympathetic activity).
-
-•	High Frequency (HF) Power: Integrated power from 0.15 to 0.40 Hz (Reflects parasympathetic/vagal modulation).
-
-•	LF/HF Ratio: Represents autonomic sympathetic-vagal balance.
-
+•	Low Frequency (LF) Power: Integrated power from 0.04 to 0.15 Hz (Reflects sympathetic activity).  
+•	High Frequency (HF) Power: Integrated power from 0.15 to 0.40 Hz (Reflects parasympathetic/vagal modulation).  
+•	LF/HF Ratio: Represents autonomic sympathetic-vagal balance.  
 •	Normalized LF & HF (lf_nu, hf_nu): Relative power percentages calculated against total power.
 
 #### 4. Class Imbalance & Sequence Stacking
@@ -59,13 +56,12 @@ For each 30-second window, Welch’s method is executed to compute the Power Spe
 
 •	Bi-LSTM: Processes the feature sequence both forward and backward in time to capture long-term temporal dependencies across macro sleep structures.
 
-### Experimental Results
-The single-lead EKG pipeline achieves robust classification mapping on independent test subjects:
+####  Results
+The single-lead EKG pipeline achieves robust classification mapping on independent test subjects:  
+•	Overall Validation Accuracy: ~63.61%.
+•	Overall Test Accuracy: ~63.61% , Which is a competitive result for ECG-only classification.
 
- -Overall Validation Accuracy: ~63.61%.
- -Overall Test Accuracy: ~63.61% , Which is a competitive result for ECG-only classification.
-
-## Classification Report:
+## Classification Report
 <img width="783" height="646" alt="Screenshot (439)" src="https://github.com/user-attachments/assets/e851d3ac-86e5-416d-8f7b-bef60d57311f" />
 
 ## Confusion Matrix
