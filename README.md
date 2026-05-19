@@ -16,6 +16,7 @@ Parsing: xml.etree.ElementTree
 
 ## Detailed Project Pipeline
  1- Signal Preprocessing & Cleaning
+ 
 •	Bandpass Filtering: Raw EKG signals are filtered using a FIR design filter (0.5 Hz - 40.0 Hz) to eliminate baseline wander, powerline interference, and muscle artifacts.
 
 •	R-Peak & IBI Extraction: R-peaks are isolated using mne.preprocessing.find_ecg_events. The differences between consecutive peaks generate the raw Inter-Beat Interval (IBI) series.
@@ -23,6 +24,7 @@ Parsing: xml.etree.ElementTree
 •	Outlier Rejection: Physiologically anomalous intervals (IBIs below 0.33s or above 1.5s, corresponding to >180 bpm or <40 bpm) are masked out. A Median Filter (medfilt with kernel size 3) smoothens the resulting Instantaneous Heart Rate (IHR).
 
 2- Uniform Resampling & Window Epoching
+
 •	Linear Interpolation: Because heartbeats occur at irregular intervals, the cleaned IHR is resampled onto a constant time grid at 4Hz using scipy.interpolate.interp1d.
 
 •	30-Second Windowing: Continuous 4Hz data streams are segmented into 120-sample windows (30 seconds each) to perfectly align with standard clinical sleep staging scoring criteria (AASM rules).
@@ -30,6 +32,7 @@ Parsing: xml.etree.ElementTree
 •	Z-Score Normalization: Localized standard scaling is applied to each 30-second epoch independently to ensure amplitude invariance.
 
 3- Spectral HRV Feature Engineering
+
 For each 30-second window, Welch’s method is executed to compute the Power Spectral Density (PSD) to extract 5 robust frequency-domain features:
 
 •	Low Frequency (LF) Power: Integrated power from 0.04 to 0.15 Hz (Reflects sympathetic activity).
@@ -41,11 +44,13 @@ For each 30-second window, Welch’s method is executed to compute the Power Spe
 •	Normalized LF & HF (lf_nu, hf_nu): Relative power percentages calculated against total power.
 
 4- Class Imbalance & Sequence Stacking
+
 •	SMOTE Balancing: Minority sleep stages (such as Stage 1 and REM) are synthetically oversampled using SMOTE to prevent the deep learning classifier from biasing towards dominant stages (Stage 2/Wake).
 
 •	Temporal Sequence Stacking: Consecutive epochs are stacked into overlapping sequences of 5 windows to provide the model with essential historical sleep-transition context.
 
 5- Hybrid CNN-BiLSTM Deep Learning Model
+
 •	1D-CNN Layers: Extract spatial morphology, instantaneous fluctuations, and local localized feature maps directly from the 4Hz normalized signals.
 
 •	Residual Connections: Prevent vanishing gradients, enabling deeper network learning.
