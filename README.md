@@ -7,15 +7,16 @@ To enhance classification accuracy, we utilize a dual-domain approach, merging t
 
 
 ## Tech Stack & Libraries
-Language: Python 3.x
-Biomedical Signal Processing: MNE-Python, SciPy (Signal Module)
-Deep Learning Framework: PyTorch / TensorFlow
-Machine Learning & Data Prep: Scikit-learn, Imbalanced-learn (SMOTE)
-Data Manipulation: Pandas, NumPy
-Parsing: xml.etree.ElementTree
+•	Language: Python 3.9
+•	Biomedical Signal Processing: MNE-Python, SciPy (Signal Module)
+•	Deep Learning Framework: PyTorch / TensorFlow
+•	Machine Learning & Data Prep: Scikit-learn, Imbalanced-learn (SMOTE)
+•	Data Manipulation: Pandas, NumPy
+•	Parsing: xml.etree.ElementTree
+
 
 ## Detailed Project Pipeline
- # 1. Signal Preprocessing & Cleaning
+## 1. Signal Preprocessing & Cleaning
  
 •	Bandpass Filtering: Raw EKG signals are filtered using a FIR design filter (0.5 Hz - 40.0 Hz) to eliminate baseline wander, powerline interference, and muscle artifacts.
 
@@ -23,7 +24,7 @@ Parsing: xml.etree.ElementTree
 
 •	Outlier Rejection: Physiologically anomalous intervals (IBIs below 0.33s or above 1.5s, corresponding to >180 bpm or <40 bpm) are masked out. A Median Filter (medfilt with kernel size 3) smoothens the resulting Instantaneous Heart Rate (IHR).
 
-# 2. Uniform Resampling & Window Epoching
+## 2. Uniform Resampling & Window Epoching
 
 •	Linear Interpolation: Because heartbeats occur at irregular intervals, the cleaned IHR is resampled onto a constant time grid at 4Hz using scipy.interpolate.interp1d.
 
@@ -31,7 +32,7 @@ Parsing: xml.etree.ElementTree
 
 •	Z-Score Normalization: Localized standard scaling is applied to each 30-second epoch independently to ensure amplitude invariance.
 
-# 3. Spectral HRV Feature Engineering
+## 3. Spectral HRV Feature Engineering
 
 For each 30-second window, Welch’s method is executed to compute the Power Spectral Density (PSD) to extract 5 robust frequency-domain features:
 
@@ -43,13 +44,13 @@ For each 30-second window, Welch’s method is executed to compute the Power Spe
 
 •	Normalized LF & HF (lf_nu, hf_nu): Relative power percentages calculated against total power.
 
-# 4. Class Imbalance & Sequence Stacking
+## 4. Class Imbalance & Sequence Stacking
 
 •	SMOTE Balancing: Minority sleep stages (such as Stage 1 and REM) are synthetically oversampled using SMOTE to prevent the deep learning classifier from biasing towards dominant stages (Stage 2/Wake).
 
 •	Temporal Sequence Stacking: Consecutive epochs are stacked into overlapping sequences of 5 windows to provide the model with essential historical sleep-transition context.
 
-# 5. Hybrid CNN-BiLSTM Deep Learning Model
+## 5. Hybrid CNN-BiLSTM Deep Learning Model
 
 •	1D-CNN Layers: Extract spatial morphology, instantaneous fluctuations, and local localized feature maps directly from the 4Hz normalized signals.
 
