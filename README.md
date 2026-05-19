@@ -1,5 +1,5 @@
 
-## Sleep-Stage-Classification-using-ECG-based-IHR-Signals
+## Sleep Stage Classification using ECG_based IHR Signals
 ##  Abstract
 Automated sleep stage classification is vital for accessible sleep health monitoring. This project develops a high-performance pipeline for classifying five sleep stages (Wake, N1, N2, N3, and REM) using only single-lead ECG signals. Our methodology integrates digital signal processing with a hybrid CNN-LSTM architecture, combining 1D-ResNet for spatial feature extraction and Bidirectional LSTM for temporal context modeling.
 
@@ -7,8 +7,7 @@ To enhance classification accuracy, we utilize a dual-domain approach, merging t
 
 
 ## Tech Stack & Libraries
-•	Language: Python 3.9
-
+•	Language: Python 3.9  
 •	Biomedical Signal Processing: MNE-Python, SciPy (Signal Module)  
 •	Deep Learning Framework: PyTorch / TensorFlow  
 •	Machine Learning & Data Prep: Scikit-learn, Imbalanced-learn (SMOTE)  
@@ -62,7 +61,7 @@ The single-lead EKG pipeline achieves robust classification mapping on independe
 •	Overall Test Accuracy: ~63.61% , Which is a competitive result for ECG-only classification.
 
 ## Classification Report
-<img width="783" height="646" alt="Screenshot (439)" src="https://github.com/user-attachments/assets/e851d3ac-86e5-416d-8f7b-bef60d57311f" />
+<img width="452" height="221" alt="image" src="https://github.com/user-attachments/assets/b5a0779d-e4e0-4f29-8365-200c8e4a11ce" />
 
 ## Confusion Matrix
 <img width="789" height="699" alt="image" src="https://github.com/user-attachments/assets/4e5d742e-81f1-4b09-96e7-a105b6b4a0e0" />
